@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Verse & Verified — Bridging Scripture & Black Stories</title>
+<meta name="description" content="Verse & Verified connects Bible scripture to real, sourced African American history and news stories. Today's news. Timeless truth.">
+<style>
+  :root {
+    --navy: #1e2a5a;
+    --navy-dark: #141c40;
+    --gold: #c9a227;
+    --cream: #faf3e8;
+    --text: #3a3226;
+    --muted: #6b6355;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    color: var(--text);
+    background: var(--cream);
+    line-height: 1.6;
+  }
+  a { color: inherit; }
+  .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+
+  header {
+    background: var(--navy-dark);
+    color: #fff;
+    padding: 20px 0;
+  }
+  header .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-weight: 700;
+    font-size: 20px;
+  }
+  .brand .mark {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--navy);
+    border: 2px solid var(--gold);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+  }
+  .brand span.amp { color: var(--gold); }
+
+  .hero {
+    background: linear-gradient(180deg, var(--navy-dark) 0%, var(--navy) 100%);
+    color: #fff;
+    padding: 80px 0 100px;
+    text-align: center;
+  }
+  .hero .eyebrow {
+    display: inline-block;
+    border: 1px solid rgba(255,255,255,0.3);
+    border-radius: 999px;
+    padding: 6px 18px;
+    font-size: 13px;
+    letter-spacing: 0.5px;
+    margin-bottom: 24px;
+    color: #e8ddc0;
+  }
+  .hero h1 {
+    font-size: 48px;
+    font-weight: 700;
+    margin-bottom: 16px;
+  }
+  .hero h1 .amp { color: var(--gold); font-style: italic; }
+  .hero p.tagline {
+    font-size: 16px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #b9c1de;
+    margin-bottom: 28px;
+  }
+  .hero p.sub {
+    max-width: 600px;
+    margin: 0 auto 36px;
+    font-size: 18px;
+    color: #dfe3ef;
+  }
+  .cta-row {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .btn {
+    display: inline-block;
+    padding: 14px 32px;
+    border-radius: 999px;
+    font-weight: 600;
+    text-decoration: none;
+    font-size: 16px;
+  }
+  .btn-primary {
+    background: var(--gold);
+    color: var(--navy-dark);
+  }
+  .btn-secondary {
+    background: transparent;
+    color: #fff;
+    border: 1px solid rgba(255,255,255,0.4);
+  }
+
+  section.how { padding: 80px 0; }
+  section.how h2 {
+    text-align: center;
+    font-size: 32px;
+    margin-bottom: 48px;
+    color: var(--navy-dark);
+  }
+  .steps {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+  }
+  .step {
+    background: #fff;
+    border-radius: 16px;
+    padding: 32px 24px;
+    text-align: center;
+    box-shadow: 0 2px 12px rgba(30,42,90,0.08);
+  }
+  .step .num {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: var(--navy);
+    color: var(--gold);
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 16px;
+  }
+  .step h3 { font-size: 18px; margin-bottom: 10px; color: var(--navy-dark); }
+  .step p { color: var(--muted); font-size: 15px; }
+
+  section.example {
+    background: #fff;
+    padding: 80px 0;
+  }
+  .example-card {
+    max-width: 640px;
+    margin: 0 auto;
+    background: var(--cream);
+    border-radius: 20px;
+    padding: 40px;
+    border: 1px solid rgba(30,42,90,0.08);
+  }
+  .example-card .label {
+    text-transform: uppercase;
+    font-size: 12px;
+    letter-spacing: 1px;
+    color: var(--gold);
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+  .example-card h3 { font-size: 26px; color: var(--navy-dark); margin-bottom: 16px; }
+  .example-card p { color: var(--text); margin-bottom: 24px; }
+  .tags { display: flex; flex-wrap: wrap; gap: 10px; }
+  .tag {
+    background: #fff;
+    border: 1px solid #e6d9b8;
+    color: #8a6d1f;
+    padding: 6px 14px;
+    border-radius: 999px;
+    font-size: 14px;
+  }
+
+  section.features { padding: 80px 0; }
+  section.features h2 {
+    text-align: center;
+    font-size: 32px;
+    margin-bottom: 48px;
+    color: var(--navy-dark);
+  }
+  .feature-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+  .feature {
+    background: #fff;
+    border-radius: 14px;
+    padding: 24px 28px;
+    box-shadow: 0 2px 12px rgba(30,42,90,0.06);
+  }
+  .feature h3 { color: var(--navy-dark); font-size: 17px; margin-bottom: 8px; }
+  .feature p { color: var(--muted); font-size: 15px; }
+
+  footer {
+    background: var(--navy-dark);
+    color: #cfd5e8;
+    padding: 48px 0;
+    text-align: center;
+    font-size: 14px;
+  }
+  footer a { color: var(--gold); text-decoration: none; }
+  footer .footer-links {
+    margin-top: 16px;
+    display: flex;
+    gap: 24px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  @media (max-width: 720px) {
+    .hero h1 { font-size: 34px; }
+    .steps, .feature-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <div class="brand">
+      <span class="mark">✓</span>
+      Verse<span class="amp">&</span>Verified
+    </div>
+    <a href="#download" class="btn btn-secondary" style="padding:10px 20px;font-size:14px;">Get the App</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container">
+    <span class="eyebrow">Bridging Scripture &amp; Black Stories</span>
+    <h1>Verse <span class="amp">&amp;</span> Verified</h1>
+    <p class="tagline">Today's News. Timeless Truth.</p>
+    <p class="sub">Enter any Bible scripture and discover real news stories — past and present, local and global — about African Americans that reflect its themes of justice, faith, perseverance, and hope.</p>
+    <div class="cta-row" id="download">
+      <a href="#" class="btn btn-primary">Download on the App Store</a>
+      <a href="mailto:david@thirty2give.com" class="btn btn-secondary">Contact Support</a>
+    </div>
+  </div>
+</section>
+
+<section class="how">
+  <div class="container">
+    <h2>How It Works</h2>
+    <div class="steps">
+      <div class="step">
+        <div class="num">1</div>
+        <h3>Enter a Scripture</h3>
+        <p>Type in any verse — Isaiah 58:6, Galatians 3:28, Micah 6:8 — whatever's on your heart.</p>
+      </div>
+      <div class="step">
+        <div class="num">2</div>
+        <h3>See Its Themes</h3>
+        <p>Verse & Verified surfaces the verse's core themes — justice, faith, liberation, hope, redemption.</p>
+      </div>
+      <div class="step">
+        <div class="num">3</div>
+        <h3>Discover Real Stories</h3>
+        <p>Get sourced, dated stories — local, national, and global — that bring the verse to life in history and today.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="example">
+  <div class="container">
+    <div class="example-card">
+      <div class="label">The Scripture</div>
+      <h3>John 3:16</h3>
+      <p>John 3:16 captures the essence of divine love that expresses itself through self-sacrifice to secure the life and liberation of others. In the context of African American history, this theme of sacrificial love is reflected in the lives of those who have risked their own safety, endured suffering, and persevered through profound injustice to secure freedom, dignity, and a better future for their community and for humanity at large.</p>
+      <div class="tags">
+        <span class="tag">✦ Sacrificial Love</span>
+        <span class="tag">✦ Redemption</span>
+        <span class="tag">✦ Hope</span>
+        <span class="tag">✦ Faith</span>
+        <span class="tag">✦ Liberation</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="features">
+  <div class="container">
+    <h2>Why Verse &amp; Verified</h2>
+    <div class="feature-grid">
+      <div class="feature">
+        <h3>Verified, Sourced Stories</h3>
+        <p>Every story is linked to its original source — nothing invented, nothing unverified.</p>
+      </div>
+      <div class="feature">
+        <h3>Local, National & Global</h3>
+        <p>Stories are tagged by scope so you can find what's relevant to your community or the wider world.</p>
+      </div>
+      <div class="feature">
+        <h3>History Meets Today</h3>
+        <p>From the Civil Rights era to current headlines, see scripture lived out across generations.</p>
+      </div>
+      <div class="feature">
+        <h3>Save What Moves You</h3>
+        <p>Bookmark stories to build a personal library of scripture brought to life.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div>© 2026 Verse &amp; Verified. All rights reserved.</div>
+    <div class="footer-links">
+      <a href="mailto:david@thirty2give.com">Support</a>
+      <a href="privacy.html">Privacy Policy</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
